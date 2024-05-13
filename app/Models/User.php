@@ -10,7 +10,9 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
+
     protected $guard = 'web';
+
     /**
      * The attributes that are mass assignable.
      *
