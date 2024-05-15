@@ -28,3 +28,61 @@ parameters:
 pint
 -----
 > ./vendor/bin/pint
+
+
+Pulse:
+-------
+> composer require laravel/pulse
+> php artisan vendor:publish --provider="Laravel\Pulse\PulseServiceProvider"
+> php artisan migrate
+> php artisan vendor:publish --tag=pulse-config
+> php artisan vendor:publish --tag=pulse-dashboard
+
+Redis:
+------
+> composer require predis/predis
+
+//Queue_connection set as redis
+//.env file
+QUEUE_CONNECTION=redis
+
+//Email Template
+> php artisan make:mail SendTestMail --markdown=emails.testmail
+
+//use web.php
+Route::get('/', function () {
+     \Mail::to('sharmila@cloudrevelinnovation.com')->send(new \App\Mail\SendTestMail());
+     return view('welcome');
+});
+
+//Make Email Job
+> php artisan make:job SendEmailJob
+
+public function handle(): void
+{
+    \Mail::to('sharmiladevi@cloudrevelinnovation.com')->send(new \App\Mail\SendTestMail());
+}
+//use web.php
+Route::get('/', function () {
+     dispatch(new \App\Jobs\SendEmailJob());
+     return view('welcome');
+});
+
+> php artisan queue:work --timeout=0
+
+GUI for redis:
+- - - -- -- -
+npm install -g redis-commander
+redis-commander
+
+Bulk Upload CSV:
+----------------
+> php artisan make:model Employee -m
+> php artisan make:controller EmployeeController --resource --requests --model=Employee
+php.ini settings
+memory_limit=1024m
+post_max_size=300m
+upload_max_file_size=200m
+> php artisan migrate
+> php artisan make:job ProcessCSV
+> 
