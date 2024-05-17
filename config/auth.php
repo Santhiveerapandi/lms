@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'managers',
         ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'apiusers',
+        ],
     ],
 
     /*
@@ -68,6 +72,11 @@ return [
     */
 
     'providers' => [
+        'apiusers'=> [
+            'driver'=>'eloquent',
+            'table' => 'users',
+            'model' => App\Models\User::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
