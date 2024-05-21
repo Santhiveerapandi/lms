@@ -44,12 +44,13 @@ class ApiController extends Controller
             "email" => "required|email",
             "password" => "required"
         ]);
-
-        $token = auth('api')->attempt([
+        $dept = User::where('email', '=', $request->email)->get();
+        $token = auth('api')->claims(['department' => $dept])->attempt([
             "email" => $request->email,
             "password" => $request->password
         ]);
 
+        
         if(!$token){
 
             return response()->json([

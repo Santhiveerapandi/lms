@@ -23,7 +23,7 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
     Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login');
 });
 
-// Route::group(['middleware' => ['role:admin,admin']], function () { 
+Route::group(['middleware' => ['role:admin,admin']], function () { 
     Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
 
         /**
@@ -49,4 +49,4 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
         Route::resource('employee', EmployeeController::class);
         Route::resource('course', CourseController::class);
     });
-// });
+});

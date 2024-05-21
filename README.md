@@ -97,7 +97,7 @@ Api:
 > php artisan jwt:secret
 
 ### app/Http/Controllers/Api/ApiController.php
-
+```
 <?php
 
 namespace App\Http\Controllers\Api;
@@ -211,9 +211,10 @@ class ApiController extends Controller
         ]);
     }
 }
-
+```
 routes/api.php:
 --------------
+```
 use App\Http\Controllers\Api\ApiController;
 use Illuminate\Support\Facades\Route;
 
@@ -228,12 +229,26 @@ Route::group([
     Route::get('refresh', [ApiController::class, 'refreshToken']);
     Route::get('logout', [ApiController::class, 'logout']);
 });
-
+```
 spatie
 -------
+```
 ref: https://spatie.be/docs/laravel-permission/v6/basic-usage/artisan
-php artisan permission:create-role --team-id=1 <role> <guard>
+> php artisan permission:create-role --team-id=1 <role> <guard>
 > php artisan permission:create-role --team-id=1 admin admin
 > php artisan permission:create-role --team-id=1 manager manager
 > php artisan permission:create-role --team-id=1 user api
 > php artisan permission:create-permission "edit articles" admin
+```
+
+Devops:
+-------
+```
+> composer install
+> composer run post-root-package-install
+> composer run post-create-project-cmd
+> php artisan migrate
+> php artisan db:seed --class=PermissionTableSeeder
+> php artisan db:seed --class=CreateAdminUserSeeder
+> php artisan serve
+```
