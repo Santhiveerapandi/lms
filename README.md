@@ -11,7 +11,7 @@
 larastan:
 ---------
 > ./vendor/bin/phpstan analyse --memory-limit=2G
-
+```
 phpstan.dist.neon: file
 ------------------
 includes:
@@ -24,7 +24,7 @@ parameters:
 
     # Level 9 is the highest level
     level: 5
-
+```
 pint
 -----
 > ./vendor/bin/pint
@@ -32,21 +32,24 @@ pint
 
 Pulse:
 -------
+```
 > composer require laravel/pulse
 > php artisan vendor:publish --provider="Laravel\Pulse\PulseServiceProvider"
 > php artisan migrate
 > php artisan vendor:publish --tag=pulse-config
 > php artisan vendor:publish --tag=pulse-dashboard
-
+```
 Redis:
 ------
 > composer require predis/predis
 
-//Queue_connection set as redis
-//.env file
+#### Queue_connection set as redis
+```
+.env file
 QUEUE_CONNECTION=redis
-
-//Email Template
+```
+#### Email Template
+```
 > php artisan make:mail SendTestMail --markdown=emails.testmail
 
 //use web.php
@@ -54,10 +57,10 @@ Route::get('/', function () {
      \Mail::to('sharmila@cloudrevelinnovation.com')->send(new \App\Mail\SendTestMail());
      return view('welcome');
 });
-
-//Make Email Job
+```
+#### Make Email Job
 > php artisan make:job SendEmailJob
-
+```
 public function handle(): void
 {
     \Mail::to('sharmiladevi@cloudrevelinnovation.com')->send(new \App\Mail\SendTestMail());
@@ -69,14 +72,16 @@ Route::get('/', function () {
 });
 
 > php artisan queue:work --timeout=0
-
+```
 GUI for redis:
 - - - -- -- -
+```
 npm install -g redis-commander
 redis-commander
-
+```
 Bulk Upload CSV:
 ----------------
+```
 > php artisan make:model Employee -m
 > php artisan make:controller EmployeeController --resource --requests --model=Employee
 php.ini settings
@@ -85,9 +90,10 @@ post_max_size=300m
 upload_max_file_size=200m
 > php artisan migrate
 > php artisan make:job ProcessCSV
-
+```
 Api:
 ---
+```
 > php artisan install:api
 
 > composer require php-open-source-saver/jwt-auth
@@ -95,7 +101,7 @@ Api:
 > php artisan vendor:publish --provider="PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider"
 
 > php artisan jwt:secret
-
+```
 ### app/Http/Controllers/Api/ApiController.php
 ```
 <?php
