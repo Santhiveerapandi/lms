@@ -9,8 +9,23 @@ use Illuminate\Support\Facades\Bus;
 use Exception;
 use App\Jobs\ProcessCSV;
 
-class EmployeeController extends Controller
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+
+
+class EmployeeController extends Controller //implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            // examples with aliases, pipe-separated names, guards, etc:
+            'role_or_permission:admin|edit employee',
+            new Middleware('role:admin', only: ['create,store,index']),
+            new Middleware(\Spatie\Permission\Middleware\RoleMiddleware::using('admin'), except:['show']),
+            new Middleware(\Spatie\Permission\Middleware\PermissionMiddleware::using('delete records,admin'), only:['destroy']),
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      */

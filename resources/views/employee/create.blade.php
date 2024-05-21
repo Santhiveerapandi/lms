@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Employee Creation') }}
@@ -28,7 +28,7 @@
 
                     <div style="min-height: 5vh;" class="min-h-screen bg-gray-100 dark:bg-gray-900">
                         <main>
-                        <form id="csvimportform" action="{{ route('employee.store') }}" enctype="multipart/form-data" method="post">
+                        <form id="csvimportform" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data" method="post">
                             @csrf
 
                             <input type="file" class="form-control" name="csvfile" id="csvfile" />
@@ -43,4 +43,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-admin-app-layout>

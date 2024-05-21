@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
@@ -18,18 +23,30 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
     Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login');
 });
 
-Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
+// Route::group(['middleware' => ['role:admin,admin']], function () { 
+    Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+        /**
+         * ACL Started
+         */
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', UserController::class);
+    
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->name('logout');
-});
+        Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+
+        Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+            ->name('logout');
+
+        Route::resource('employee', EmployeeController::class);
+        Route::resource('course', CourseController::class);
+    });
+// });

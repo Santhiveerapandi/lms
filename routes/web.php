@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +28,6 @@ Route::middleware(['auth', 'verified'])->group(function(){
         */
         return view('dashboard'); 
     })->name('dashboard');
-    Route::resource('employee', EmployeeController::class);
 });
 
 require __DIR__.'/auth.php';

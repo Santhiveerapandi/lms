@@ -228,3 +228,12 @@ Route::group([
     Route::get('refresh', [ApiController::class, 'refreshToken']);
     Route::get('logout', [ApiController::class, 'logout']);
 });
+
+spatie
+-------
+ref: https://spatie.be/docs/laravel-permission/v6/basic-usage/artisan
+php artisan permission:create-role --team-id=1 <role> <guard>
+> php artisan permission:create-role --team-id=1 admin admin
+> php artisan permission:create-role --team-id=1 manager manager
+> php artisan permission:create-role --team-id=1 user api
+> php artisan permission:create-permission "edit articles" admin

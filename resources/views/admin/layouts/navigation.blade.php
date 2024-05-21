@@ -15,6 +15,19 @@
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.employee.create')" :active="request()->routeIs('admin.employee.create')">
+                        {{ __('Employee Create') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.course.create')" :active="request()->routeIs('admin.course.create')">
+                        {{ __('Course Create') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+                        {{ __('User Management') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')">
+                        {{ __('Roles Management') }}
+                    </x-nav-link>
+                    
                 </div>
             </div>
 

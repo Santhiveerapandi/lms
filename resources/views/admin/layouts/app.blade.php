@@ -28,9 +28,26 @@
             @endif
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            
+            @if (isset($slot))
+                <main>
+                    {{ $slot }}
+                </main>
+            @else
+                <main class="py-4">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                    @yield('content')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            @endif
         </div>
     </body>
 </html>
