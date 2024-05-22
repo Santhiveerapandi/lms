@@ -1,0 +1,30 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+* Learning Management System (LMS):
+/////////////////////////////////
+
+- employees
+- courses
+- lessons
+- quizzes
+- admins
+- roles and permissions
+- chat
+
+/////////////// 
+* Optimal case
+//////////////
+
+modules:
+- quizzes
+- chat
+- roles and permissions
+
+//////////////
+* suboptimal case
+//////////////
+
+- employees
+- admin
+- course
+- lesson
+- notification

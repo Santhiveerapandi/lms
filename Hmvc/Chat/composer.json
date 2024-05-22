@@ -1,0 +1,30 @@
+{
+    "name": "Hmvc/chat",
+    "description": "",
+    "authors": [
+        {
+            "name": "Santhiveerapandi Kamaraj",
+            "email": "santhiveerapandi@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Hmvc\\Chat\\": "app/",
+            "Hmvc\\Chat\\Database\\Factories\\": "database/factories/",
+            "Hmvc\\Chat\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hmvc\\Chat\\Tests\\": "tests/"
+        }
+    }
+}

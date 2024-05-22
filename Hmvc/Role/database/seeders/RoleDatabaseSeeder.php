@@ -1,0 +1,16 @@
+<?php
+
+namespace Hmvc\Role\Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class RoleDatabaseSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        // $this->call([]);
+    }
+}

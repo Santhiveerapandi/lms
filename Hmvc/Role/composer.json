@@ -1,0 +1,30 @@
+{
+    "name": "Hmvc/role",
+    "description": "",
+    "authors": [
+        {
+            "name": "Santhiveerapandi Kamaraj",
+            "email": "santhiveerapandi@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Hmvc\\Role\\": "app/",
+            "Hmvc\\Role\\Database\\Factories\\": "database/factories/",
+            "Hmvc\\Role\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hmvc\\Role\\Tests\\": "tests/"
+        }
+    }
+}

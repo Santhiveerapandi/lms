@@ -1,0 +1,11 @@
+{
+    "name": "Role",
+    "alias": "role",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Hmvc\\Role\\Providers\\RoleServiceProvider"
+    ],
+    "files": []
+}

@@ -1,0 +1,30 @@
+{
+    "name": "Hmvc/quiz",
+    "description": "",
+    "authors": [
+        {
+            "name": "Santhiveerapandi Kamaraj",
+            "email": "santhiveerapandi@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Hmvc\\Quiz\\": "app/",
+            "Hmvc\\Quiz\\Database\\Factories\\": "database/factories/",
+            "Hmvc\\Quiz\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hmvc\\Quiz\\Tests\\": "tests/"
+        }
+    }
+}

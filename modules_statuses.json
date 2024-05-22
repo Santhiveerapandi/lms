@@ -1,0 +1,7 @@
+{
+    "Course": true,
+    "Lesson": true,
+    "Quiz": true,
+    "Chat": true,
+    "Role": true
+}

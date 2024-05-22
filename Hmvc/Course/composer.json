@@ -1,0 +1,30 @@
+{
+    "name": "Hmvc/course",
+    "description": "",
+    "authors": [
+        {
+            "name": "Santhiveerapandi Kamaraj",
+            "email": "santhiveerapandi@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Hmvc\\Course\\": "app/",
+            "Hmvc\\Course\\Database\\Factories\\": "database/factories/",
+            "Hmvc\\Course\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hmvc\\Course\\Tests\\": "tests/"
+        }
+    }
+}

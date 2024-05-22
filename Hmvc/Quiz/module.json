@@ -1,0 +1,11 @@
+{
+    "name": "Quiz",
+    "alias": "quiz",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Hmvc\\Quiz\\Providers\\QuizServiceProvider"
+    ],
+    "files": []
+}

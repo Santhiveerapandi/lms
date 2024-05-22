@@ -1,0 +1,11 @@
+{
+    "name": "Course",
+    "alias": "course",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Hmvc\\Course\\Providers\\CourseServiceProvider"
+    ],
+    "files": []
+}
