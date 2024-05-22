@@ -10,6 +10,7 @@
         "laravel/pulse": "^1.1",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "nwidart/laravel-modules": "^11.0",
         "php-open-source-saver/jwt-auth": "^2.3",
         "predis/predis": "^2.2",
         "spatie/laravel-permission": "^6.7"
@@ -57,6 +58,11 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "merge-plugin": {
+            "include": [
+                "Hmvc/*/composer.json"
+            ]
         }
     },
     "config": {
@@ -65,7 +71,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "minimum-stability": "stable",

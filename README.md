@@ -258,3 +258,5 @@ Devops:
 > php artisan db:seed --class=CreateAdminUserSeeder
 > php artisan serve
 ```
+
+Ref: https://github.com/nWidart/laravel-modules/blob/master/README.md
