@@ -23,7 +23,7 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
     Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login');
 });
 
-Route::group(['middleware' => ['role:admin,admin']], function () { 
+// Route::group(['middleware' => ['role:admin,admin']], function () { 
     Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
 
         /**
@@ -35,7 +35,7 @@ Route::group(['middleware' => ['role:admin,admin']], function () {
 
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
-        })->middleware(['auth', 'verified'])->name('dashboard');
+        })->middleware(['auth:admin', 'verified'])->name('dashboard');
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -49,4 +49,4 @@ Route::group(['middleware' => ['role:admin,admin']], function () {
         Route::resource('employee', EmployeeController::class);
         Route::resource('course', CourseController::class);
     });
-});
+// });
